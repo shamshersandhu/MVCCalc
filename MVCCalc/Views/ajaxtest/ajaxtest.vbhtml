@@ -29,14 +29,16 @@ End Code
 </div>
 @Section MyScripts
     <script type="text/javascript">
-    //    function updateTime() {
-   //         $('#timediv').load('/ajaxtest/test');
-   //     }
-   //     setInterval("updateTime()", 1000);
+        function updateTime() {
+            $('#timediv').load('/ajaxtest/test');
+            $("#calcresults").fitToWidth();
+       }
+        setInterval("updateTime()", 1000);
 
         function getresults() {
-            $('#result').load('/ajaxtest/calc?e1=' + $("#expr1").val() + '&e2=' +  $("#expr2").val() + '&op=' +  $("#oper").val());
-       //     alert($("#expr1").val());
+            $('#result').load('/ajaxtest/calc?e1=' + $("#expr1").val() + '&e2=' + $("#expr2").val() + '&op=' + $("#oper").val());
+            $("#calcresults").fitToWidth();
+       //    alert($("#expr1").val());
             return false;
         }
 
@@ -91,7 +93,21 @@ End Code
                     e.preventDefault();
                 }
             });
+     
+          
         });
+
+        $.fn.fitToWidth = function () {
+            $(this).wrapInner("<span style='display:inline;font:inherit;white-space:inherit;'></span>").each(function () {
+                var $t = $(this);
+                var a = $t.outerWidth(),
+                    $s = $t.children("span"),
+                    f = parseFloat($t.css("font-size"));
+                while ($t.children("span").outerWidth() > a) $t.css("font-size", --f);
+                $t.html($s.html());
+            });
+           
+        }
     </script>
 
 End Section
