@@ -1,6 +1,4 @@
-﻿Imports System.Web.Mvc
-
-Namespace Controllers
+﻿Namespace Controllers
     Public Class ajaxtestController
         Inherits Controller
 

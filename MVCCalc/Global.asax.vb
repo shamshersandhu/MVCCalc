@@ -1,6 +1,6 @@
 ﻿Imports System.Web.Optimization
 
-Public Class MvcApplication
+Public Class MVCCalc
     Inherits System.Web.HttpApplication
 
     Sub Application_Start()
